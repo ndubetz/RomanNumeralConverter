@@ -35,4 +35,26 @@ public class ArabicToRomanNumberConverterTest extends TestCase{
 		String expectedRomanNumeral3 = "IX";
 		assertEquals(expectedRomanNumeral3, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert3));
 	}
+	
+	public void testConvert_CanConvertNumbersThatAreLessThan50() throws Exception {
+		int numberToConvert1 = 14;
+		String expectedRomanNumeral1 = "XIV";
+		assertEquals(expectedRomanNumeral1, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert1));
+		
+		int numberToConvert2 = 33;
+		String expectedRomanNumeral2 = "XXXIII";
+		assertEquals(expectedRomanNumeral2, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert2));
+		
+		int numberToConvert3 = 41;
+		String expectedRomanNumeral3 = "XLI";
+		assertEquals(expectedRomanNumeral3, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert3));
+		
+		int numberToConvert4 = 44;
+		String expectedRomanNumeral4 = "XLIV";
+		assertEquals(expectedRomanNumeral4, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert4));
+		
+		int numberToConvert5 = 49;
+		String expectedRomanNumeral5 = "XLIX";
+		assertEquals(expectedRomanNumeral5, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert5));
+	}
 }
