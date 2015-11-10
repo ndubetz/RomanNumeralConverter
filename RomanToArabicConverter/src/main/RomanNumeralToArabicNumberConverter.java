@@ -1,0 +1,34 @@
+package main;
+
+public class RomanNumeralToArabicNumberConverter {
+
+	public int convertToArabicNumber(String romanNumeralToConvert) {
+		int convertedNumber = 0;
+		
+		char[] romanNumeralChars = romanNumeralToConvert.toCharArray();
+		for(int i = 0; i < romanNumeralChars.length; i++){
+			if(romanNumeralChars[i] == 'I'){
+				if(i < romanNumeralChars.length - 1){
+					if(romanNumeralChars[i + 1] == 'V'){
+						convertedNumber += 4;
+						i++;
+					}
+					else if (romanNumeralChars[i + 1] == 'X'){
+						convertedNumber += 9;
+						i++;
+					}
+					else{
+						convertedNumber += 1;
+					}
+				}else{
+					convertedNumber += 1;
+				}
+			}
+			else{
+				convertedNumber += 5;
+			}
+		}
+		return convertedNumber;
+	}
+
+}
