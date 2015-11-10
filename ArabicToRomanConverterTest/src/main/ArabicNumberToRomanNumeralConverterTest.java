@@ -12,6 +12,12 @@ public class ArabicNumberToRomanNumeralConverterTest extends TestCase{
 		arabicNumberToRomanNumeralConverter = new ArabicNumberToRomanNumeralConverter();
 	}
 	
+	@Override
+	protected void tearDown() throws Exception {
+		arabicNumberToRomanNumeralConverter = null;
+		super.tearDown();
+	}
+	
 	public void testConvert_CanConvertNumbersThatAreLessThan100() throws Exception {
 		int[] numbersToConvert = {3,4,5,7,9,14,33,41,44,49,54,63,82,94,99};
 		String [] expectedRomanNumerals = {"III", "IV", "V", "VII", "IX", "XIV", "XXXIII", "XLI", 
