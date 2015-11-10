@@ -5,7 +5,15 @@ public class ArabicToRomanNumberConverter {
 	public String convertToRomanNumeral(int numberToConvert) {
 		String convertedString = "";
 		while(numberToConvert > 10){
-			if (numberToConvert > 40){
+			if (numberToConvert > 90){
+				convertedString += "XC";
+				numberToConvert -= 90;	
+			}
+			else if(numberToConvert > 50){
+				convertedString += "L";
+				numberToConvert -= 50;	
+			}
+			else if (numberToConvert > 40){
 				convertedString += "XL";
 				numberToConvert -= 40;			
 			}
@@ -28,15 +36,13 @@ public class ArabicToRomanNumberConverter {
 				convertedString += "V";
 				numberToConvert -= 5;
 			}
+			else if(numberToConvert == 4){
+				convertedString += "IV";
+				numberToConvert -= 4;
+			}
 			else{
-				if(numberToConvert == 4){
-					convertedString += "IV";
-					numberToConvert -= 4;
-				}
-				else{
-					convertedString += "I";
-					numberToConvert--;
-				}
+				convertedString += "I";
+				numberToConvert--;
 			}
 		}
 		return convertedString;
