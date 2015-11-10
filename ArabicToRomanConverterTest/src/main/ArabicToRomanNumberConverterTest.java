@@ -4,9 +4,15 @@ import junit.framework.TestCase;
 
 public class ArabicToRomanNumberConverterTest extends TestCase{
 	
+	private ArabicToRomanNumberConverter arabicToRomanNumberConverter;
+
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		arabicToRomanNumberConverter = new ArabicToRomanNumberConverter();
+	}
+	
 	public void testConvert_CanConvertNumbersThatAreLessThan5() throws Exception {
-		ArabicToRomanNumberConverter arabicToRomanNumberConverter = new ArabicToRomanNumberConverter();
-		
 		int numberToConvert1 = 3;
 		String expectedRomanNumeral1 = "III";
 		assertEquals(expectedRomanNumeral1, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert1));
@@ -17,8 +23,6 @@ public class ArabicToRomanNumberConverterTest extends TestCase{
 	}
 	
 	public void testConvert_CanConvertNumbersThatAreLessThan10() throws Exception {
-		ArabicToRomanNumberConverter arabicToRomanNumberConverter = new ArabicToRomanNumberConverter();
-		
 		int numberToConvert1 = 5;
 		String expectedRomanNumeral1 = "V";
 		assertEquals(expectedRomanNumeral1, arabicToRomanNumberConverter.convertToRomanNumeral(numberToConvert1));

@@ -3,6 +3,10 @@ package main;
 public class ArabicToRomanNumberConverter {
 
 	public String convertToRomanNumeral(int numberToConvert) {
+		return convertOnesDigitToRomanNumeral(numberToConvert % 10);
+	}
+
+	private String convertOnesDigitToRomanNumeral(int numberToConvert){
 		String convertedString = "";
 		while(numberToConvert > 0){
 			if (numberToConvert == 9){
@@ -26,5 +30,4 @@ public class ArabicToRomanNumberConverter {
 		}
 		return convertedString;
 	}
-
 }
