@@ -22,4 +22,15 @@ public class ArabicNumberToRomanNumeralConverterTest extends TestCase{
 					arabicNumberToRomanNumeralConverter.convertToRomanNumeral(numbersToConvert[i]));
 		}
 	}
+	
+	public void testConvert_CanConvertNumbersThatAreLessThan1000() throws Exception {
+		int[] numbersToConvert = {113,244,333,375,397,409,414,444,541,649,754,763,882,994,999};
+		String [] expectedRomanNumerals = {"CXIII", "CCXLIV", "CCCXXXIII", "CCCLXXV", "CCCXCVII", "CDIX", "CDXIV",  
+				"CDXLIV", "DXLI", "DCXLIX", "DCCLIV", "DCCLXIII", "DCCCLXXXII", "CMXCIV", "CMXCIX"};
+		
+		for(int i = 0; i < expectedRomanNumerals.length; i++){
+			assertEquals(expectedRomanNumerals[i], 
+					arabicNumberToRomanNumeralConverter.convertToRomanNumeral(numbersToConvert[i]));
+		}
+	}
 }

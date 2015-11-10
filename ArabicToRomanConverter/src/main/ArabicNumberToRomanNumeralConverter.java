@@ -3,8 +3,12 @@ package main;
 public class ArabicNumberToRomanNumeralConverter {
 
 	public String convertToRomanNumeral(int numberToConvert) {
-		return convertToRomanRepresentation(numberToConvert / 10, "X", "L", "C") 
-				+ convertToRomanRepresentation(numberToConvert % 10, "I", "V", "X");
+		int hundredsDigit = numberToConvert / 100;
+		int tensDigit = (numberToConvert % 100) / 10;
+		int onesDigit = numberToConvert % 10;
+		return convertToRomanRepresentation(hundredsDigit, "C", "D", "M")
+				+ convertToRomanRepresentation(tensDigit, "X", "L", "C") 
+				+ convertToRomanRepresentation(onesDigit, "I", "V", "X");
 	}
 
 	private String convertToRomanRepresentation(int numberToConvert, String oneSymbol, 
