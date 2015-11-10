@@ -19,16 +19,21 @@ public class ArabicNumberValidatorTest extends TestCase {
 	}
 	
 	public void testCanBeConvertedToRomanNumeral_ReturnsTrueIfNumberIsGreaterThanZero() throws Exception {
-		assertTrue(arabicNumberValidator.canBeConvertedToRomanNumeral(1));
+		assertTrue(arabicNumberValidator.canBeConvertedToRomanNumeral("1"));
 	}
 	
 	public void testCanBeConvertedToRomanNumeral_ReturnsFalseIfNumberIsLessThanOrEqualToZero() throws Exception {
-		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral(0));
-		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral(Integer.MIN_VALUE));
+		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral("0"));
+		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral(Integer.toString(Integer.MIN_VALUE)));
 	}
 	
 	public void testCanBeConvertedToRomanNumeral_ReturnsFalseIfNumberIsGreaterThan3999AndTrueIfLessThan3999() throws Exception {
-		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral(4000));
-		assertTrue(arabicNumberValidator.canBeConvertedToRomanNumeral(3999));
+		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral("4000"));
+		assertTrue(arabicNumberValidator.canBeConvertedToRomanNumeral("3999"));
+	}
+	
+	public void testCanBeConvertedToRomanNumeral_CatchedNumberFormatExceptionAndReturnsFalse() throws Exception {
+		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral("4000.0"));
+		assertFalse(arabicNumberValidator.canBeConvertedToRomanNumeral("string"));
 	}
 }
