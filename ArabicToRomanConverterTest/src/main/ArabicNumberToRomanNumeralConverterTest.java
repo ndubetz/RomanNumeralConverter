@@ -33,4 +33,15 @@ public class ArabicNumberToRomanNumeralConverterTest extends TestCase{
 					arabicNumberToRomanNumeralConverter.convertToRomanNumeral(numbersToConvert[i]));
 		}
 	}
+	
+	public void testConvert_CanConvertNumbersThatAreLessThan3999() throws Exception {
+		int[] numbersToConvert = {1113,1244,1375,1997,1999,2414,2444,2541,2649,2754,3063,3333,3882,3994,3999};
+		String [] expectedRomanNumerals = {"MCXIII", "MCCXLIV", "MCCCLXXV", "MCMXCVII", "MCMXCIX", "MMCDXIV",  
+				"MMCDXLIV", "MMDXLI", "MMDCXLIX", "MMDCCLIV", "MMMLXIII", "MMMCCCXXXIII", "MMMDCCCLXXXII", "MMMCMXCIV", "MMMCMXCIX"};
+		
+		for(int i = 0; i < expectedRomanNumerals.length; i++){
+			assertEquals(expectedRomanNumerals[i], 
+					arabicNumberToRomanNumeralConverter.convertToRomanNumeral(numbersToConvert[i]));
+		}
+	}
 }

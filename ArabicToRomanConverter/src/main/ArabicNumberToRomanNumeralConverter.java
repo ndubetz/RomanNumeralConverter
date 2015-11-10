@@ -3,15 +3,17 @@ package main;
 public class ArabicNumberToRomanNumeralConverter {
 
 	public String convertToRomanNumeral(int numberToConvert) {
-		int hundredsDigit = numberToConvert / 100;
+		int thousandsDigit = numberToConvert / 1000;
+		int hundredsDigit = (numberToConvert % 1000) / 100;
 		int tensDigit = (numberToConvert % 100) / 10;
 		int onesDigit = numberToConvert % 10;
-		return convertToRomanRepresentation(hundredsDigit, "C", "D", "M")
-				+ convertToRomanRepresentation(tensDigit, "X", "L", "C") 
-				+ convertToRomanRepresentation(onesDigit, "I", "V", "X");
+		return convertToRomanNumeralRepresentation(thousandsDigit, "M", "", "") 
+				+ convertToRomanNumeralRepresentation(hundredsDigit, "C", "D", "M")
+				+ convertToRomanNumeralRepresentation(tensDigit, "X", "L", "C") 
+				+ convertToRomanNumeralRepresentation(onesDigit, "I", "V", "X");
 	}
 
-	private String convertToRomanRepresentation(int numberToConvert, String oneSymbol, 
+	private String convertToRomanNumeralRepresentation(int numberToConvert, String oneSymbol, 
 			String fiveSymbol, String tenSymbol){
 		String convertedString = "";
 		while(numberToConvert > 0){
