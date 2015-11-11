@@ -24,8 +24,17 @@ public class RomanNumeralToArabicNumberConverter {
 					convertedNumber += 1;
 				}
 			}
-			else{
+			else if (romanNumeralChars[i] == 'V'){
 				convertedNumber += 5;
+			}
+			else{
+				if(romanNumeralChars[i + 1] == 'L'){
+					convertedNumber += 40;
+					i++;
+				}
+				else{
+					convertedNumber += 10;
+				}
 			}
 		}
 		return convertedNumber;
