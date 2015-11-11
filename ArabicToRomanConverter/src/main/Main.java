@@ -13,19 +13,15 @@ public class Main {
 
 	private static void mainLoop(){
 		Scanner scanner = new Scanner(System.in);
-		ArabicNumberValidator arabicNumberValidator = new ArabicNumberValidator();
-		ArabicNumberToRomanNumeralConverter arabicNumberToRomanNumeralConverter = new ArabicNumberToRomanNumeralConverter();
+		ArabicNumberToRomanNumeralConverter arabicNumberToRomanNumeralConverter 
+			= new ArabicNumberToRomanNumeralConverter(new ArabicNumberValidator());
 
 		System.out.println("Enter an integer between 0 and 3,999.\nPress 'Q' to quit.");
 		
 		String userInput = scanner.next();
 		
 		while(!userInput.toUpperCase().equals("Q")){
-			if(arabicNumberValidator.canBeConvertedToRomanNumeral(userInput)){
-				System.out.println(arabicNumberToRomanNumeralConverter.convertToRomanNumeral(Integer.parseInt(userInput)));
-			}else{
-				System.out.println("Invalid input.");
-			}
+			System.out.println(arabicNumberToRomanNumeralConverter.convertToRomanNumeral(userInput));
 			
 			System.out.println("Enter another integer between 0 and 3,999.\nPress 'Q' to quit.");
 			userInput = scanner.next();
