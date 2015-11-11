@@ -5,17 +5,28 @@ import java.util.Stack;
 public class RomanNumeralToArabicNumberConverter {
 
 	private Stack<Character> romanNumeralAsStackOfCharacters;
+	private RomanNumeralValidator romanNumeralValidator;
 
-	public int convertToArabicNumber(String romanNumeralToConvert) {
-		int convertedNumber = 0;
-		
-		romanNumeralAsStackOfCharacters = convertToStackOfCharacters(romanNumeralToConvert);
-		
-		while(!romanNumeralAsStackOfCharacters.isEmpty()){
-			convertedNumber += parseCharIntoIntAndSubtractIfNecessary(romanNumeralAsStackOfCharacters);
+	public RomanNumeralToArabicNumberConverter(
+			RomanNumeralValidator romanNumeralValidator) {
+				this.romanNumeralValidator = romanNumeralValidator;
+	}
+
+	public String convertToArabicNumber(String romanNumeralToConvert) {
+		if(this.romanNumeralValidator.isAValidRomanNumeral(romanNumeralToConvert)){
+			int convertedNumber = 0;
+			
+			romanNumeralAsStackOfCharacters = convertToStackOfCharacters(romanNumeralToConvert);
+			
+			while(!romanNumeralAsStackOfCharacters.isEmpty()){
+				convertedNumber += parseCharIntoIntAndSubtractIfNecessary(romanNumeralAsStackOfCharacters);
+			}
+	
+			return Integer.toString(convertedNumber);
 		}
-
-		return convertedNumber;
+		else{
+			return "Invalid Input";
+		}
 	}
 	
 	private Stack<Character> convertToStackOfCharacters(String romanNumeralToConvert){
@@ -62,5 +73,9 @@ public class RomanNumeralToArabicNumberConverter {
 		else{
 			return valueOfNumeral;
 		}
+	}
+
+	public RomanNumeralValidator getRomanNumeralValidator() {
+		return this.romanNumeralValidator;
 	}
 }
