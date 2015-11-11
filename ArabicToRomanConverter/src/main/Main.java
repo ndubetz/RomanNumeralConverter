@@ -13,6 +13,7 @@ public class Main {
 
 	private static void mainLoop(){
 		Scanner scanner = new Scanner(System.in);
+		
 		ArabicNumberToRomanNumeralConverter arabicNumberToRomanNumeralConverter 
 			= new ArabicNumberToRomanNumeralConverter(new ArabicNumberValidator());
 
