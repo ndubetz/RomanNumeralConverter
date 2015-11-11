@@ -28,4 +28,16 @@ public class RomanNumeralToArabicNumberConverterTest extends TestCase {
 					romanNumeralToArabicNumberConverter.convertToArabicNumber(romanNumeralsToConvert[i]));
 		}
 	}
+	
+	public void testConvert_CanConvertNumeralsLessThanC() throws Exception {
+		RomanNumeralToArabicNumberConverter romanNumeralToArabicNumberConverter 
+		= new RomanNumeralToArabicNumberConverter();
+		String [] romanNumeralsToConvert = {"LIV", "LXXIX", "LXXXVII", "XCIV", "XCIX"};
+		int[] expectedArabicNumbers = {54,79,87,94,99};
+		
+		for(int i = 0; i < expectedArabicNumbers.length; i++){
+			assertEquals(expectedArabicNumbers[i], 
+					romanNumeralToArabicNumberConverter.convertToArabicNumber(romanNumeralsToConvert[i]));
+		}
+	}
 }

@@ -27,14 +27,20 @@ public class RomanNumeralToArabicNumberConverter {
 			else if (romanNumeralChars[i] == 'V'){
 				convertedNumber += 5;
 			}
-			else{
+			else if (romanNumeralChars[i] == 'X'){
 				if(romanNumeralChars[i + 1] == 'L'){
 					convertedNumber += 40;
+					i++;
+				}
+				else if (romanNumeralChars[i + 1] == 'C'){
+					convertedNumber += 90;
 					i++;
 				}
 				else{
 					convertedNumber += 10;
 				}
+			}else{
+				convertedNumber += 50;
 			}
 		}
 		return convertedNumber;
