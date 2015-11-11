@@ -30,7 +30,13 @@ public class RomanNumeralToArabicNumberConverter {
 
 	private int parseCharIntoIntAndSubtractIfNecessary(Stack<Character> stackOfChars) {
 		Character romanNumeral = romanNumeralAsStackOfCharacters.pop();
-		if (romanNumeral == 'C'){
+		if (romanNumeral == 'M'){
+			return actuallyParseNumeralToIntegerAndSubtractIfNecessary('C', 1000, 100);
+		} 
+		else if (romanNumeral == 'D'){
+			return actuallyParseNumeralToIntegerAndSubtractIfNecessary('C', 500, 100);
+		} 
+		else if (romanNumeral == 'C'){
 			return actuallyParseNumeralToIntegerAndSubtractIfNecessary('X', 100, 10);
 		} 
 		else if (romanNumeral == 'L'){
